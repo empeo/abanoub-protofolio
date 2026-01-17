@@ -75,7 +75,7 @@ function Pill({ children }) {
 
 function ButtonLink({ href, children, variant = "primary" }) {
   const base = "group relative inline-flex items-center justify-center rounded-full px-5 md:px-8 py-2.5 md:py-3 text-sm md:text-base font-semibold transition-all duration-500 overflow-hidden active:scale-95";
-  
+
   if (variant === "primary") {
     return (
       <a className={`${base} bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-600 text-white hover:shadow-2xl hover:shadow-cyan-500/50 hover:scale-110`} href={href} target="_blank" rel="noreferrer">
@@ -89,7 +89,7 @@ function ButtonLink({ href, children, variant = "primary" }) {
       </a>
     );
   }
-  
+
   return (
     <a className={`${base} bg-white/5 border border-white/10 text-gray-200 hover:bg-white/10 hover:border-cyan-400/50 hover:scale-105 backdrop-blur-xl`} href={href} target="_blank" rel="noreferrer">
       <span className="flex items-center gap-2">
@@ -121,10 +121,10 @@ export default function App() {
     const handleMouseMove = (e) => {
       setMousePos({ x: e.clientX, y: e.clientY });
     };
-    
+
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("mousemove", handleMouseMove);
-    
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("mousemove", handleMouseMove);
@@ -149,10 +149,10 @@ export default function App() {
       </div>
 
       {/* Mouse Follower */}
-      <div 
+      <div
         className="fixed w-8 h-8 rounded-full bg-cyan-400/20 blur-xl pointer-events-none z-50 transition-all duration-700 ease-out hidden lg:block"
-        style={{ 
-          left: `${mousePos.x}px`, 
+        style={{
+          left: `${mousePos.x}px`,
           top: `${mousePos.y}px`,
           transform: 'translate(-50%, -50%)'
         }}
@@ -168,7 +168,7 @@ export default function App() {
             <span className="text-gray-500">.</span>
             <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-purple-500 group-hover:w-full transition-all duration-500" />
           </a>
-          
+
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
             <NavLink href="#about">About</NavLink>
@@ -178,7 +178,7 @@ export default function App() {
             <NavLink href="#experience">Experience</NavLink>
             <NavLink href="#contact">Contact</NavLink>
           </nav>
-          
+
           {/* CTA Buttons */}
           <div className="hidden lg:flex items-center gap-2 md:gap-3">
             <ButtonLink href={`mailto:${LINKS.email}`} variant="primary">
@@ -188,7 +188,7 @@ export default function App() {
           </div>
 
           {/* Mobile Menu Button */}
-          <button 
+          <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="lg:hidden ml-3 p-2 rounded-lg hover:bg-white/5 transition-colors"
           >
@@ -243,7 +243,7 @@ export default function App() {
                 </span>
                 <span className="block text-white mt-2">Felix</span>
               </h1>
-              
+
               {/* Title */}
               <p className="text-lg sm:text-xl md:text-2xl text-gray-300 flex items-center gap-3 flex-wrap">
                 <span className="inline-flex items-center gap-2">
@@ -264,8 +264,7 @@ export default function App() {
 
               {/* Description */}
               <p className="text-base md:text-lg text-gray-400 max-w-2xl leading-relaxed">
-                I build secure, scalable Laravel APIs and admin dashboards for startups, e-commerce, and small businesses,
-                focusing on performance, clean architecture, and maintainable code.
+                Junior Software Engineer specializing in backend development with PHP & Laravel, focused on building secure, scalable web applications and RESTful APIs.
               </p>
 
               {/* CTA Buttons */}
@@ -365,10 +364,14 @@ export default function App() {
             <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600 to-purple-600 rounded-3xl blur-xl opacity-20 group-hover:opacity-40 transition duration-500" />
             <div className="relative rounded-3xl bg-gradient-to-br from-gray-900/90 to-gray-800/90 border border-white/10 p-6 md:p-8 backdrop-blur-xl hover:scale-[1.02] transition-transform duration-500">
               <p className="text-base md:text-lg text-gray-300 leading-relaxed">
-                I'm a Laravel Backend Developer with 4 years of experience building RESTful APIs, admin dashboards, and
-                e-commerce backends. I graduated in 2024 from EELU (Computer & Information Technology, Assiut) with a Very
-                Good overall grade. I focus on performance, security, and scalability, and I enjoy turning business
-                requirements into clean, maintainable backend systems.
+                As a Junior Software Engineer with a knack for backend development,
+                I thrive in creating scalable web applications using PHP and Laravel.
+                Graduating with a degree in Information Technology,
+                I have honed my skills in programming and database management.
+                At MEC Academy, I led initiatives that improved team productivity by 25% through innovative backend solutions and secure RESTful APIs.
+                I am eager to bring my expertise to ambitious teams committed to pushing the boundaries of web development.
+                Feel free to explore my projects on GitHub: https://github.com/empeo.
+                Let's connect to explore potential collaborations in crafting innovative web solutions.
               </p>
             </div>
           </div>
