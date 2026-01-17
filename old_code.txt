@@ -1,0 +1,385 @@
+import React from "react";
+
+const PROFILE_IMAGE_URL = "./profile.jpg"; // <- put your image URL here
+
+const LINKS = {
+  email: "empop214@gmail.com",
+  phone: "+20 127 008 806 9",
+  github: "https://github.com/empeo",
+  linkedin: "https://www.linkedin.com/in/abanoub-emad-felix-41a734285/",
+};
+
+const PROJECTS = [
+  {
+    name: "GommlaBack (Plastic Factory App)",
+    desc: "Laravel API powering a production-ready mobile app published on Google Play.",
+    tags: ["Laravel", "REST API", "MySQL", "Production"],
+    links: [
+      { label: "Google Play", href: "https://play.google.com/store/apps/details?id=com.gomlaback.opacking&hl=en" },
+      { label: "LinkedIn Video", href: "https://www.linkedin.com/posts/abanoub-emad-felix-41a734285_phpabrlaravel-php-mysql-activity-7273126520766767104-600U" },
+    ],
+  },
+  {
+    name: "Saint George Marketplace",
+    desc: "Laravel backend for an e-commerce supermarket platform.",
+    tags: ["Laravel", "API", "E-commerce"],
+    links: [{ label: "Live Site", href: "https://saintgeorgemarketplace.com/" }],
+  },
+  {
+    name: "Saint Hermina Monastery Products",
+    desc: "Landing page built with HTML/CSS/JS and hosted on GitHub Pages.",
+    tags: ["HTML", "CSS", "JavaScript"],
+    links: [{ label: "Live Demo", href: "https://empeo.github.io/Saint_Hermina/" }],
+  },
+  {
+    name: "Restaurant System (PHP Native + MySQL)",
+    desc: "Simple restaurant project using native PHP and MySQL.",
+    tags: ["PHP", "MySQL", "CRUD"],
+    links: [
+      { label: "GitHub", href: "https://github.com/empeo/Resturant" },
+      { label: "LinkedIn Post", href: "https://www.linkedin.com/posts/abanoub-emad-felix-41a734285_simple-restaurant-with-php-native-and-mysql-activity-7223497687269015552-BRLe" },
+    ],
+  },
+  {
+    name: "Learning Management System API",
+    desc: "Backend REST API for an LMS built with Laravel.",
+    tags: ["Laravel", "REST API", "Backend"],
+    links: [
+      { label: "GitHub", href: "https://github.com/empeo/Learning_Managment_System_API" },
+      { label: "LinkedIn Post", href: "https://www.linkedin.com/posts/abanoub-emad-felix-41a734285_github-empeolearningmanagmentsystemapi-activity-7252776334307852291-yS0p" },
+    ],
+  },
+];
+
+function SectionTitle({ title, subtitle }) {
+  return (
+    <div className="mb-8">
+      <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">{title}</h2>
+      {subtitle && <p className="mt-2 text-slate-600 max-w-2xl">{subtitle}</p>}
+    </div>
+  );
+}
+
+function Pill({ children }) {
+  return (
+    <span className="inline-flex items-center rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-slate-700">
+      {children}
+    </span>
+  );
+}
+
+function ButtonLink({ href, children, variant = "primary" }) {
+  const base =
+    "inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-medium transition focus:outline-none focus:ring-2 focus:ring-offset-2";
+  const styles =
+    variant === "primary"
+      ? "bg-slate-900 text-white hover:bg-slate-800 focus:ring-slate-900"
+      : "bg-white text-slate-900 border border-slate-200 hover:bg-slate-50 focus:ring-slate-300";
+  return (
+    <a className={`${base} ${styles}`} href={href} target="_blank" rel="noreferrer">
+      {children}
+    </a>
+  );
+}
+
+function NavLink({ href, children }) {
+  return (
+    <a
+      href={href}
+      className="text-sm text-slate-700 hover:text-slate-900 transition"
+    >
+      {children}
+    </a>
+  );
+}
+
+export default function App() {
+  return (
+    <div className="min-h-screen bg-slate-50 text-slate-900">
+      {/* Top bar */}
+      <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/80 backdrop-blur">
+        <div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
+          <a href="#top" className="font-semibold tracking-tight">
+            Abanoub<span className="text-slate-500">.</span>
+          </a>
+          <nav className="hidden md:flex items-center gap-6">
+            <NavLink href="#about">About</NavLink>
+            <NavLink href="#skills">Skills</NavLink>
+            <NavLink href="#services">Services</NavLink>
+            <NavLink href="#projects">Projects</NavLink>
+            <NavLink href="#experience">Experience</NavLink>
+            <NavLink href="#contact">Contact</NavLink>
+          </nav>
+          <div className="flex items-center gap-2">
+            <a
+              className="hidden sm:inline-flex text-sm text-slate-700 hover:text-slate-900"
+              href={LINKS.github}
+              target="_blank"
+              rel="noreferrer"
+            >
+              GitHub
+            </a>
+            <ButtonLink href={`mailto:${LINKS.email}`} variant="primary">
+              Contact Me
+            </ButtonLink>
+          </div>
+        </div>
+      </header>
+
+      {/* Hero */}
+      <main id="top" className="mx-auto max-w-6xl px-4">
+        <section className="py-14 md:py-20">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+            <div className="md:col-span-7">
+              <div className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs text-slate-700">
+                <span className="h-2 w-2 rounded-full bg-emerald-500" />
+                Available for freelance & backend projects
+              </div>
+
+              <h1 className="mt-4 text-4xl md:text-5xl font-semibold tracking-tight">
+                Abanoub Emad Felix
+              </h1>
+              <p className="mt-3 text-lg md:text-xl text-slate-700">
+                Laravel Backend Developer • Cairo, Egypt
+              </p>
+
+              <p className="mt-5 text-slate-600 max-w-2xl leading-relaxed">
+                I build secure, scalable Laravel APIs and admin dashboards for startups, e-commerce, and small businesses,
+                focusing on performance, clean architecture, and maintainable code.
+              </p>
+
+              <div className="mt-6 flex flex-wrap gap-3">
+                <ButtonLink href={`mailto:${LINKS.email}`} variant="primary">
+                  Contact Me
+                </ButtonLink>
+                <ButtonLink href={LINKS.linkedin} variant="secondary">
+                  LinkedIn
+                </ButtonLink>
+                <ButtonLink href={LINKS.github} variant="secondary">
+                  GitHub
+                </ButtonLink>
+              </div>
+
+              <div className="mt-6 flex flex-wrap gap-2">
+                <Pill>Laravel</Pill>
+                <Pill>PHP</Pill>
+                <Pill>REST APIs</Pill>
+                <Pill>MySQL</Pill>
+                <Pill>Auth (Sanctum/Passport)</Pill>
+                <Pill>Caching</Pill>
+              </div>
+            </div>
+
+            <div className="md:col-span-5">
+              <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                <div className="flex items-center gap-4">
+                  <div className="h-20 w-20 rounded-2xl overflow-hidden border border-slate-200 bg-slate-100 flex items-center justify-center">
+                    {PROFILE_IMAGE_URL === "PASTE_YOUR_IMAGE_URL_HERE" ? (
+                      <span className="text-xs text-slate-500 px-2 text-center">
+                        Your photo here
+                      </span>
+                    ) : (
+                      <img
+                        src={PROFILE_IMAGE_URL}
+                        alt="Profile"
+                        className="h-full w-full object-cover"
+                      />
+                    )}
+                  </div>
+                  <div>
+                    <p className="font-semibold">Abanoub Emad Felix</p>
+                    <p className="text-sm text-slate-600">Laravel Backend Developer</p>
+                    <p className="text-sm text-slate-600">Cairo, Egypt</p>
+                  </div>
+                </div>
+
+                <div className="mt-5 grid grid-cols-1 gap-3 text-sm">
+                  <div className="rounded-xl border border-slate-200 bg-slate-50 p-3">
+                    <p className="text-slate-500">Email</p>
+                    <a className="font-medium hover:underline" href={`mailto:${LINKS.email}`}>
+                      {LINKS.email}
+                    </a>
+                  </div>
+                  <div className="rounded-xl border border-slate-200 bg-slate-50 p-3">
+                    <p className="text-slate-500">Phone</p>
+                    <a className="font-medium hover:underline" href={`tel:${LINKS.phone}`}>
+                      {LINKS.phone}
+                    </a>
+                  </div>
+                </div>
+
+                <div className="mt-5 flex gap-3">
+                  <ButtonLink href={LINKS.github} variant="secondary">
+                    GitHub
+                  </ButtonLink>
+                  <ButtonLink href={LINKS.linkedin} variant="secondary">
+                    LinkedIn
+                  </ButtonLink>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* About */}
+        <section id="about" className="py-12 border-t border-slate-200">
+          <SectionTitle
+            title="About"
+            subtitle="A quick snapshot of who I am and how I work."
+          />
+          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+            <p className="text-slate-700 leading-relaxed">
+              I’m a Laravel Backend Developer with 4 years of experience building RESTful APIs, admin dashboards, and
+              e-commerce backends. I graduated in 2024 from EELU (Computer & Information Technology, Assiut) with a Very
+              Good overall grade. I focus on performance, security, and scalability, and I enjoy turning business
+              requirements into clean, maintainable backend systems.
+            </p>
+          </div>
+        </section>
+
+        {/* Skills */}
+        <section id="skills" className="py-12 border-t border-slate-200">
+          <SectionTitle
+            title="Skills"
+            subtitle="Grouped by what I use most in real projects."
+          />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <h3 className="font-semibold">Frontend</h3>
+              <p className="mt-2 text-slate-700">
+                HTML5, CSS3, JavaScript, Bootstrap, Tailwind CSS, Materialize
+              </p>
+            </div>
+            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <h3 className="font-semibold">Backend</h3>
+              <p className="mt-2 text-slate-700">
+                PHP (Native), Laravel, RESTful API Development
+              </p>
+            </div>
+            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <h3 className="font-semibold">Databases</h3>
+              <p className="mt-2 text-slate-700">MySQL</p>
+            </div>
+            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <h3 className="font-semibold">Tools & Testing</h3>
+              <p className="mt-2 text-slate-700">Git, GitHub, Postman</p>
+            </div>
+          </div>
+        </section>
+
+        {/* Services */}
+        <section id="services" className="py-12 border-t border-slate-200">
+          <SectionTitle
+            title="Services"
+            subtitle="What I can deliver for your product or business."
+          />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {[
+              "Laravel RESTful API Development",
+              "Authentication (Sanctum / Passport)",
+              "Authorization (Gates & Middleware)",
+              "Admin Dashboards",
+              "Performance Optimization (Caching)",
+              "Bug Fixing & Refactoring",
+              "Deployment (Vercel / GitHub Pages / Shared Hosting)",
+            ].map((s) => (
+              <div key={s} className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                <p className="font-medium">{s}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Projects */}
+        <section id="projects" className="py-12 border-t border-slate-200">
+          <SectionTitle
+            title="Featured Projects"
+            subtitle="A selection of projects demonstrating backend APIs, real deployments, and practical outcomes."
+          />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {PROJECTS.map((p) => (
+              <div key={p.name} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                <h3 className="font-semibold text-lg">{p.name}</h3>
+                <p className="mt-2 text-slate-700">{p.desc}</p>
+
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {p.tags.map((t) => (
+                    <Pill key={t}>{t}</Pill>
+                  ))}
+                </div>
+
+                <div className="mt-5 flex flex-wrap gap-3">
+                  {p.links.map((l) => (
+                    <ButtonLink key={l.href} href={l.href} variant="secondary">
+                      {l.label}
+                    </ButtonLink>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Experience */}
+        <section id="experience" className="py-12 border-t border-slate-200">
+          <SectionTitle title="Experience & Training" subtitle="Highlights from real work and focused learning." />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <h3 className="font-semibold">Experience</h3>
+              <ul className="mt-3 space-y-2 text-slate-700 list-disc pl-5">
+                <li>GommlaBack — Laravel API for a mobile app on Google Play</li>
+                <li>Saint George Marketplace — Laravel backend for e-commerce</li>
+                <li>Saint Hermina — Frontend landing page (HTML/CSS/JS)</li>
+              </ul>
+            </div>
+
+            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+              <h3 className="font-semibold">Training</h3>
+              <p className="mt-3 text-slate-700">
+                PHP Laravel Backend — MEC Academy (2023)
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Contact */}
+        <section id="contact" className="py-12 border-t border-slate-200">
+          <SectionTitle title="Contact" subtitle="Let’s talk about your project and how I can help." />
+          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+              <div>
+                <p className="text-slate-700">
+                  Email:{" "}
+                  <a className="font-medium hover:underline" href={`mailto:${LINKS.email}`}>
+                    {LINKS.email}
+                  </a>
+                </p>
+                <p className="text-slate-700 mt-1">
+                  Phone:{" "}
+                  <a className="font-medium hover:underline" href={`tel:${LINKS.phone}`}>
+                    {LINKS.phone}
+                  </a>
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-3">
+                <ButtonLink href={`mailto:${LINKS.email}`} variant="primary">
+                  Contact Me
+                </ButtonLink>
+                <ButtonLink href={LINKS.linkedin} variant="secondary">
+                  LinkedIn
+                </ButtonLink>
+                <ButtonLink href={LINKS.github} variant="secondary">
+                  GitHub
+                </ButtonLink>
+              </div>
+            </div>
+          </div>
+
+          <footer className="py-10 text-center text-sm text-slate-500">
+            © {new Date().getFullYear()} Abanoub Emad Felix • Built with React + Tailwind
+          </footer>
+        </section>
+      </main>
+    </div>
+  );
+}
