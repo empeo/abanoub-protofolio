@@ -179,14 +179,6 @@ export default function App() {
             <NavLink href="#contact">Contact</NavLink>
           </nav>
 
-          {/* CTA Buttons */}
-          <div className="hidden lg:flex items-center gap-2 md:gap-3">
-            <ButtonLink href={`mailto:${LINKS.email}`} variant="primary">
-              <span className="hidden sm:inline">Let's Talk</span>
-              <span className="sm:hidden">Contact</span>
-            </ButtonLink>
-          </div>
-
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -212,11 +204,6 @@ export default function App() {
               <NavLink href="#projects">Projects</NavLink>
               <NavLink href="#experience">Experience</NavLink>
               <NavLink href="#contact">Contact</NavLink>
-              <div className="pt-4 border-t border-white/10">
-                <ButtonLink href={`mailto:${LINKS.email}`} variant="primary">
-                  Let's Talk
-                </ButtonLink>
-              </div>
             </nav>
           </div>
         )}
@@ -269,9 +256,6 @@ export default function App() {
 
               {/* CTA Buttons */}
               <div className="flex flex-wrap gap-3 md:gap-4 pt-4">
-                <ButtonLink href={`mailto:${LINKS.email}`} variant="primary">
-                  Contact Me
-                </ButtonLink>
                 <ButtonLink href={LINKS.linkedin} variant="secondary">
                   LinkedIn
                 </ButtonLink>
@@ -534,7 +518,6 @@ export default function App() {
 
         {/* Contact */}
         <section id="contact" className="py-16 md:py-20 pb-16 md:pb-32 scroll-mt-20">
-          <SectionTitle title="Contact" subtitle="Let's talk about your project and how I can help." />
           <div className="relative group animate-fade-in-up">
             <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600 via-blue-600 to-purple-600 rounded-3xl blur-2xl opacity-30 group-hover:opacity-50 transition duration-500" />
             <div className="relative rounded-3xl bg-gradient-to-br from-gray-900/90 to-gray-800/90 border border-white/10 p-8 md:p-10 backdrop-blur-2xl hover:scale-[1.01] transition-transform duration-500">
@@ -569,9 +552,6 @@ export default function App() {
                   </div>
                 </div>
                 <div className="flex flex-wrap gap-4">
-                  <ButtonLink href={`mailto:${LINKS.email}`} variant="primary">
-                    Contact Me
-                  </ButtonLink>
                   <ButtonLink href={LINKS.linkedin} variant="secondary">
                     LinkedIn
                   </ButtonLink>
