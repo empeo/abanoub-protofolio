@@ -9,45 +9,36 @@ const LINKS = {
   linkedin: "https://www.linkedin.com/in/abanoub-emad-felix-41a734285/",
 };
 
-const PROJECTS = [
+const PENTEST_PROJECTS = [
   {
-    name: "GommlaBack (Plastic Factory App)",
-    desc: "Laravel API powering a production-ready mobile app published on Google Play.",
-    tags: ["Laravel", "REST API", "MySQL", "Production"],
-    links: [
-      { label: "Google Play", href: "https://play.google.com/store/apps/details?id=com.gomlaback.opacking&hl=en" },
-      { label: "LinkedIn Video", href: "https://www.linkedin.com/posts/abanoub-emad-felix-41a734285_phpabrlaravel-php-mysql-activity-7273126520766767104-600U" },
-    ],
+    name: "Web Application Security Testing",
+    desc: "Comprehensive security assessment of web applications including OWASP Top 10 vulnerabilities testing.",
+    tags: ["OWASP", "SQL Injection", "XSS", "CSRF"],
+    icon: "🔐",
   },
   {
-    name: "Saint George Marketplace",
-    desc: "Laravel backend for an e-commerce supermarket platform.",
-    tags: ["Laravel", "API", "E-commerce"],
-    links: [{ label: "Live Site", href: "https://saintgeorgemarketplace.com/" }],
+    name: "Network Penetration Testing",
+    desc: "Internal and external network security assessments with vulnerability scanning and exploitation.",
+    tags: ["Nmap", "Metasploit", "Wireshark", "Network Analysis"],
+    icon: "🌐",
   },
   {
-    name: "Saint Hermina Monastery Products",
-    desc: "Landing page built with HTML/CSS/JS and hosted on GitHub Pages.",
-    tags: ["HTML", "CSS", "JavaScript"],
-    links: [{ label: "Live Demo", href: "https://empeo.github.io/Saint_Hermina/" }],
+    name: "Wireless Security Auditing",
+    desc: "WiFi security testing including WPA/WPA2 cracking and rogue access point detection.",
+    tags: ["Aircrack-ng", "WiFi", "WPA2", "Evil Twin"],
+    icon: "📡",
   },
   {
-    name: "Restaurant System (PHP Native + MySQL)",
-    desc: "Simple restaurant project using native PHP and MySQL.",
-    tags: ["PHP", "MySQL", "CRUD"],
-    links: [
-      { label: "GitHub", href: "https://github.com/empeo/Resturant" },
-      { label: "LinkedIn Post", href: "https://www.linkedin.com/posts/abanoub-emad-felix-41a734285_simple-restaurant-with-php-native-and-mysql-activity-7223497687269015552-BRLe" },
-    ],
+    name: "Social Engineering Campaigns",
+    desc: "Phishing simulations and security awareness assessments for organizations.",
+    tags: ["Phishing", "SET", "Security Awareness"],
+    icon: "🎣",
   },
   {
-    name: "Learning Management System API",
-    desc: "Backend REST API for an LMS built with Laravel.",
-    tags: ["Laravel", "REST API", "Backend"],
-    links: [
-      { label: "GitHub", href: "https://github.com/empeo/Learning_Managment_System_API" },
-      { label: "LinkedIn Post", href: "https://www.linkedin.com/posts/abanoub-emad-felix-41a734285_github-empeolearningmanagmentsystemapi-activity-7252776334307852291-yS0p" },
-    ],
+    name: "Mobile Application Testing",
+    desc: "Android and iOS app security testing including reverse engineering and API analysis.",
+    tags: ["Android", "iOS", "Mobile Security", "API Testing"],
+    icon: "📱",
   },
 ];
 
@@ -55,10 +46,10 @@ function SectionTitle({ title, subtitle }) {
   return (
     <div className="mb-12 animate-fade-in-up">
       <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 relative inline-block">
-        <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
+        <span className="bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 bg-clip-text text-transparent">
           {title}
         </span>
-        <div className="absolute -bottom-2 left-0 w-20 h-1 bg-gradient-to-r from-cyan-400 to-purple-600 rounded-full animate-expand" />
+        <div className="absolute -bottom-2 left-0 w-20 h-1 bg-gradient-to-r from-red-500 to-yellow-500 rounded-full animate-expand" />
       </h2>
       {subtitle && <p className="mt-4 text-base md:text-lg text-gray-400 max-w-2xl animate-fade-in-up animation-delay-200">{subtitle}</p>}
     </div>
@@ -67,7 +58,7 @@ function SectionTitle({ title, subtitle }) {
 
 function Pill({ children }) {
   return (
-    <span className="inline-flex items-center rounded-full bg-gradient-to-r from-cyan-500/10 via-blue-500/10 to-purple-500/10 border border-cyan-500/30 px-3 md:px-4 py-1.5 text-xs md:text-sm font-medium text-cyan-300 hover:scale-110 hover:border-cyan-400/50 transition-all duration-300">
+    <span className="inline-flex items-center rounded-full bg-gradient-to-r from-red-500/10 via-orange-500/10 to-yellow-500/10 border border-red-500/30 px-3 md:px-4 py-1.5 text-xs md:text-sm font-medium text-red-300 hover:scale-110 hover:border-red-400/50 transition-all duration-300">
       {children}
     </span>
   );
@@ -78,20 +69,20 @@ function ButtonLink({ href, children, variant = "primary" }) {
 
   if (variant === "primary") {
     return (
-      <a className={`${base} bg-gradient-to-r from-cyan-500 via-blue-500 to-purple-600 text-white hover:shadow-2xl hover:shadow-cyan-500/50 hover:scale-110`} href={href} target="_blank" rel="noreferrer">
+      <a className={`${base} bg-gradient-to-r from-red-600 via-orange-500 to-yellow-500 text-white hover:shadow-2xl hover:shadow-red-500/50 hover:scale-110`} href={href} target="_blank" rel="noreferrer">
         <span className="relative z-10 flex items-center gap-2">
           {children}
           <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
           </svg>
         </span>
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-pink-500 to-cyan-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <div className="absolute inset-0 bg-gradient-to-r from-yellow-500 via-orange-500 to-red-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       </a>
     );
   }
 
   return (
-    <a className={`${base} bg-white/5 border border-white/10 text-gray-200 hover:bg-white/10 hover:border-cyan-400/50 hover:scale-105 backdrop-blur-xl`} href={href} target="_blank" rel="noreferrer">
+    <a className={`${base} bg-white/5 border border-white/10 text-gray-200 hover:bg-white/10 hover:border-red-400/50 hover:scale-105 backdrop-blur-xl`} href={href} target="_blank" rel="noreferrer">
       <span className="flex items-center gap-2">
         {children}
       </span>
@@ -103,10 +94,10 @@ function NavLink({ href, children }) {
   return (
     <a
       href={href}
-      className="text-sm md:text-base text-gray-300 hover:text-cyan-400 transition-all duration-300 relative group px-2 py-1"
+      className="text-sm md:text-base text-gray-300 hover:text-red-400 transition-all duration-300 relative group px-2 py-1"
     >
       {children}
-      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-purple-500 group-hover:w-full transition-all duration-300 rounded-full" />
+      <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-red-500 to-yellow-500 group-hover:w-full transition-all duration-300 rounded-full" />
     </a>
   );
 }
@@ -125,6 +116,158 @@ export default function App() {
     window.addEventListener("scroll", handleScroll);
     window.addEventListener("mousemove", handleMouseMove);
 
+    // Matrix Code Rain Animation
+    const canvas = document.getElementById('matrix-canvas');
+    if (canvas) {
+      const ctx = canvas.getContext('2d');
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      const chars = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン';
+      const fontSize = 14;
+      const columns = canvas.width / fontSize;
+      const drops = Array(Math.floor(columns)).fill(1);
+
+      function draw() {
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.font = fontSize + 'px monospace';
+
+        for (let i = 0; i < drops.length; i++) {
+          const colorChoices = ['rgba(239, 68, 68, 0.8)', 'rgba(249, 115, 22, 0.8)', 'rgba(234, 179, 8, 0.8)'];
+          ctx.fillStyle = colorChoices[Math.floor(Math.random() * colorChoices.length)];
+
+          const text = chars[Math.floor(Math.random() * chars.length)];
+          ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+          if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+            drops[i] = 0;
+          }
+          drops[i]++;
+        }
+      }
+
+      const matrixInterval = setInterval(draw, 50);
+
+      // Binary Particles Animation
+      const binaryCanvas = document.getElementById('binary-canvas');
+      if (binaryCanvas) {
+        const binaryCtx = binaryCanvas.getContext('2d');
+        binaryCanvas.width = window.innerWidth;
+        binaryCanvas.height = window.innerHeight;
+
+        class BinaryParticle {
+          constructor() {
+            this.x = Math.random() * binaryCanvas.width;
+            this.y = Math.random() * binaryCanvas.height;
+            this.size = Math.random() * 3 + 1;
+            this.speedX = Math.random() * 0.5 - 0.25;
+            this.speedY = Math.random() * 0.5 - 0.25;
+            this.binary = Math.random() > 0.5 ? '0' : '1';
+            this.opacity = Math.random() * 0.5 + 0.3;
+          }
+
+          update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+
+            if (this.x < 0 || this.x > binaryCanvas.width) this.speedX *= -1;
+            if (this.y < 0 || this.y > binaryCanvas.height) this.speedY *= -1;
+          }
+
+          draw() {
+            binaryCtx.fillStyle = `rgba(239, 68, 68, ${this.opacity})`;
+            binaryCtx.font = `${this.size * 8}px monospace`;
+            binaryCtx.fillText(this.binary, this.x, this.y);
+          }
+        }
+
+        const binaryParticles = Array(30).fill().map(() => new BinaryParticle());
+
+        function animateBinary() {
+          binaryCtx.clearRect(0, 0, binaryCanvas.width, binaryCanvas.height);
+          binaryParticles.forEach(particle => {
+            particle.update();
+            particle.draw();
+          });
+        }
+
+        const binaryInterval = setInterval(animateBinary, 50);
+
+        // Lock Icons Floating Animation
+        const iconsCanvas = document.getElementById('icons-canvas');
+        if (iconsCanvas) {
+          const iconsCtx = iconsCanvas.getContext('2d');
+          iconsCanvas.width = window.innerWidth;
+          iconsCanvas.height = window.innerHeight;
+
+          class FloatingIcon {
+            constructor() {
+              this.x = Math.random() * iconsCanvas.width;
+              this.y = Math.random() * iconsCanvas.height;
+              this.size = Math.random() * 20 + 15;
+              this.speedX = Math.random() * 0.3 - 0.15;
+              this.speedY = Math.random() * 0.3 - 0.15;
+              this.rotation = Math.random() * Math.PI * 2;
+              this.rotationSpeed = (Math.random() - 0.5) * 0.02;
+              this.icons = ['🔒', '🔐', '🛡️', '🔑', '⚠️', '🚨'];
+              this.icon = this.icons[Math.floor(Math.random() * this.icons.length)];
+            }
+
+            update() {
+              this.x += this.speedX;
+              this.y += this.speedY;
+              this.rotation += this.rotationSpeed;
+
+              if (this.x < -50 || this.x > iconsCanvas.width + 50) this.speedX *= -1;
+              if (this.y < -50 || this.y > iconsCanvas.height + 50) this.speedY *= -1;
+            }
+
+            draw() {
+              iconsCtx.save();
+              iconsCtx.translate(this.x, this.y);
+              iconsCtx.rotate(this.rotation);
+              iconsCtx.font = `${this.size}px Arial`;
+              iconsCtx.fillText(this.icon, -this.size / 2, this.size / 2);
+              iconsCtx.restore();
+            }
+          }
+
+          const floatingIcons = Array(15).fill().map(() => new FloatingIcon());
+
+          function animateIcons() {
+            iconsCtx.clearRect(0, 0, iconsCanvas.width, iconsCanvas.height);
+            floatingIcons.forEach(icon => {
+              icon.update();
+              icon.draw();
+            });
+          }
+
+          const iconsInterval = setInterval(animateIcons, 50);
+
+          const handleResize = () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            binaryCanvas.width = window.innerWidth;
+            binaryCanvas.height = window.innerHeight;
+            iconsCanvas.width = window.innerWidth;
+            iconsCanvas.height = window.innerHeight;
+          };
+          window.addEventListener('resize', handleResize);
+
+          return () => {
+            clearInterval(matrixInterval);
+            clearInterval(binaryInterval);
+            clearInterval(iconsInterval);
+            window.removeEventListener("scroll", handleScroll);
+            window.removeEventListener("mousemove", handleMouseMove);
+            window.removeEventListener('resize', handleResize);
+          };
+        }
+      }
+    }
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("mousemove", handleMouseMove);
@@ -133,28 +276,79 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-950 via-gray-900 to-black text-white relative overflow-x-hidden">
-      {/* Animated Grid Background */}
-      <div className="fixed inset-0 opacity-20 pointer-events-none">
+      {/* Matrix Code Rain Background */}
+      <div className="fixed inset-0 opacity-10 pointer-events-none z-0">
+        <canvas id="matrix-canvas" className="w-full h-full" />
+      </div>
+
+      {/* Scanning Lines Effect */}
+      <div className="fixed inset-0 opacity-5 pointer-events-none z-0">
+        <div className="absolute inset-0 scan-line" />
+      </div>
+
+      {/* Binary Particles */}
+      <div className="fixed inset-0 opacity-10 pointer-events-none z-0">
+        <canvas id="binary-canvas" className="w-full h-full" />
+      </div>
+
+      {/* Hexagonal Grid Pattern */}
+      <div className="fixed inset-0 opacity-5 pointer-events-none z-0">
         <div className="absolute inset-0" style={{
-          backgroundImage: 'linear-gradient(rgba(6, 182, 212, 0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(6, 182, 212, 0.1) 1px, transparent 1px)',
+          backgroundImage: `
+            linear-gradient(30deg, transparent 48%, rgba(239, 68, 68, 0.1) 49%, rgba(239, 68, 68, 0.1) 51%, transparent 52%),
+            linear-gradient(-30deg, transparent 48%, rgba(249, 115, 22, 0.1) 49%, rgba(249, 115, 22, 0.1) 51%, transparent 52%)
+          `,
+          backgroundSize: '50px 86px'
+        }} />
+      </div>
+
+      {/* Animated Circuit Lines */}
+      <div className="fixed inset-0 opacity-10 pointer-events-none z-0">
+        <svg className="w-full h-full">
+          <defs>
+            <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style={{ stopColor: '#ef4444', stopOpacity: 0.8 }} />
+              <stop offset="50%" style={{ stopColor: '#f97316', stopOpacity: 0.6 }} />
+              <stop offset="100%" style={{ stopColor: '#eab308', stopOpacity: 0.4 }} />
+            </linearGradient>
+          </defs>
+          <path className="circuit-path-1" d="M 0 100 Q 150 50, 300 100 T 600 100" stroke="url(#gradient1)" strokeWidth="2" fill="none" />
+          <path className="circuit-path-2" d="M 600 200 Q 750 150, 900 200 T 1200 200" stroke="url(#gradient1)" strokeWidth="2" fill="none" />
+          <path className="circuit-path-3" d="M 0 300 Q 200 250, 400 300 T 800 300" stroke="url(#gradient1)" strokeWidth="2" fill="none" />
+        </svg>
+      </div>
+
+      {/* Glitch Effect Overlay */}
+      <div className="fixed inset-0 opacity-5 pointer-events-none z-0 glitch-overlay" />
+
+      {/* Animated Grid Background */}
+      <div className="fixed inset-0 opacity-8 pointer-events-none z-0">
+        <div className="absolute inset-0 grid-animation" style={{
+          backgroundImage: 'linear-gradient(rgba(239, 68, 68, 0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(239, 68, 68, 0.15) 1px, transparent 1px)',
           backgroundSize: '50px 50px'
         }} />
       </div>
 
-      {/* Floating Orbs */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-float" />
-        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-float animation-delay-2000" />
-        <div className="absolute bottom-0 left-1/2 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-float animation-delay-4000" />
+      {/* Floating Orbs with Pulse */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-red-500 rounded-full mix-blend-screen filter blur-3xl opacity-15 animate-float-pulse" />
+        <div className="absolute top-1/3 right-1/4 w-96 h-96 bg-orange-500 rounded-full mix-blend-screen filter blur-3xl opacity-15 animate-float-pulse animation-delay-2000" />
+        <div className="absolute bottom-0 left-1/2 w-96 h-96 bg-yellow-500 rounded-full mix-blend-screen filter blur-3xl opacity-15 animate-float-pulse animation-delay-4000" />
       </div>
 
-      {/* Mouse Follower */}
+      {/* Lock Icons Floating */}
+      <div className="fixed inset-0 opacity-5 pointer-events-none z-0">
+        <canvas id="icons-canvas" className="w-full h-full" />
+      </div>
+
+      {/* Mouse Follower with Glow */}
       <div
-        className="fixed w-8 h-8 rounded-full bg-cyan-400/20 blur-xl pointer-events-none z-50 transition-all duration-700 ease-out hidden lg:block"
+        className="fixed w-8 h-8 rounded-full bg-red-400/20 blur-xl pointer-events-none z-50 transition-all duration-700 ease-out hidden lg:block"
         style={{
           left: `${mousePos.x}px`,
           top: `${mousePos.y}px`,
-          transform: 'translate(-50%, -50%)'
+          transform: 'translate(-50%, -50%)',
+          boxShadow: '0 0 50px 20px rgba(239, 68, 68, 0.3)'
         }}
       />
 
@@ -162,27 +356,27 @@ export default function App() {
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'bg-gray-950/90 backdrop-blur-2xl border-b border-white/5 shadow-2xl' : 'bg-transparent'}`}>
         <div className="mx-auto max-w-7xl px-4 md:px-6 py-3 md:py-4 flex items-center justify-between">
           <a href="#top" className="text-xl md:text-2xl font-bold relative group">
-            <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent animate-gradient">
+            <span className="bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 bg-clip-text text-transparent animate-gradient">
               Abanoub
             </span>
             <span className="text-gray-500">.</span>
-            <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-cyan-400 to-purple-500 group-hover:w-full transition-all duration-500" />
+            <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-red-500 to-yellow-500 group-hover:w-full transition-all duration-500" />
           </a>
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
             <NavLink href="#about">About</NavLink>
+            <NavLink href="#education">Education</NavLink>
             <NavLink href="#skills">Skills</NavLink>
-            <NavLink href="#services">Services</NavLink>
-            <NavLink href="#projects">Projects</NavLink>
-            <NavLink href="#experience">Experience</NavLink>
+            <NavLink href="#pentest">Projects</NavLink>
             <NavLink href="#contact">Contact</NavLink>
           </nav>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden ml-3 p-2 rounded-lg hover:bg-white/5 transition-colors"
+            className="lg:hidden p-2 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all"
+            aria-label="Toggle menu"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {mobileMenuOpen ? (
@@ -196,141 +390,170 @@ export default function App() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="lg:hidden bg-gray-950/95 backdrop-blur-2xl border-t border-white/5 animate-fade-in">
-            <nav className="flex flex-col gap-4 px-4 py-6">
+          <div className="lg:hidden border-t border-white/5 bg-gray-950/95 backdrop-blur-2xl">
+            <nav className="flex flex-col px-4 py-4 space-y-2">
               <NavLink href="#about">About</NavLink>
+              <NavLink href="#education">Education</NavLink>
               <NavLink href="#skills">Skills</NavLink>
-              <NavLink href="#services">Services</NavLink>
-              <NavLink href="#projects">Projects</NavLink>
-              <NavLink href="#experience">Experience</NavLink>
+              <NavLink href="#pentest">Projects</NavLink>
               <NavLink href="#contact">Contact</NavLink>
             </nav>
           </div>
         )}
       </header>
 
-      {/* Hero */}
-      <main id="top" className="mx-auto max-w-7xl px-4 md:px-6 relative z-10">
-        <section className="min-h-screen flex items-center py-20 md:py-24">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center w-full">
-            <div className="lg:col-span-7 space-y-6 md:space-y-8 animate-fade-in-up">
-              {/* Status Badge */}
-              <div className="inline-flex items-center gap-2 md:gap-3 rounded-full border border-emerald-400/30 bg-emerald-400/5 px-4 md:px-5 py-2 md:py-2.5 text-xs md:text-sm text-emerald-400 backdrop-blur-xl animate-pulse-slow">
-                <span className="relative flex h-2.5 w-2.5 md:h-3 md:w-3">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 md:h-3 md:w-3 bg-emerald-500"></span>
-                </span>
-                Available for freelance & backend projects
-              </div>
-
-              {/* Name */}
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-tight">
-                <span className="block bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent animate-gradient pb-2">
-                  Abanoub Emad
-                </span>
-                <span className="block text-white mt-2">Felix</span>
-              </h1>
-
-              {/* Title */}
-              <p className="text-lg sm:text-xl md:text-2xl text-gray-300 flex items-center gap-3 flex-wrap">
-                <span className="inline-flex items-center gap-2">
-                  <svg className="w-5 h-5 md:w-6 md:h-6 text-cyan-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clipRule="evenodd" />
-                    <path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z" />
-                  </svg>
-                  Laravel Backend Developer
-                </span>
-                <span className="text-gray-500">•</span>
-                <span className="inline-flex items-center gap-2">
-                  <svg className="w-5 h-5 md:w-6 md:h-6 text-cyan-400" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-                  </svg>
-                  Cairo, Egypt
-                </span>
-              </p>
-
-              {/* Description */}
-              <p className="text-base md:text-lg text-gray-400 max-w-2xl leading-relaxed">
-                Junior Software Engineer specializing in backend development with PHP & Laravel, focused on building secure, scalable web applications and RESTful APIs.
-              </p>
-
-              {/* CTA Buttons */}
-              <div className="flex flex-wrap gap-3 md:gap-4 pt-4">
-                <ButtonLink href={LINKS.linkedin} variant="secondary">
-                  LinkedIn
-                </ButtonLink>
-                <ButtonLink href={LINKS.github} variant="secondary">
-                  GitHub
-                </ButtonLink>
-              </div>
-
-              {/* Skills Pills */}
-              <div className="flex flex-wrap gap-2 pt-2">
-                <Pill>Laravel</Pill>
-                <Pill>PHP</Pill>
-                <Pill>REST APIs</Pill>
-                <Pill>MySQL</Pill>
-                <Pill>Auth</Pill>
-                <Pill>Caching</Pill>
+      <main className="relative mx-auto max-w-7xl px-4 md:px-6 pt-24 md:pt-32">
+        {/* Hero Section */}
+        <section id="about" className="min-h-[80vh] flex flex-col justify-center py-16 md:py-20 scroll-mt-20">
+          <div className="flex flex-col items-center gap-8 lg:gap-12">
+            {/* Profile Image First */}
+            <div className="flex-shrink-0 animate-fade-in-up">
+              <div className="relative group">
+                <div className="absolute -inset-1 bg-gradient-to-r from-red-600 via-orange-500 to-yellow-500 rounded-full blur-2xl opacity-75 group-hover:opacity-100 transition duration-500 animate-pulse-slow" />
+                <div className="relative w-48 h-48 md:w-64 md:h-64 lg:w-80 lg:h-80 rounded-full overflow-hidden border-4 border-white/10 group-hover:scale-105 transition-transform duration-500">
+                  <img
+                    src={PROFILE_IMAGE_URL}
+                    alt="Profile"
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.target.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Crect fill='%23111827' width='400' height='400'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' font-family='monospace' font-size='48' fill='%23ef4444'%3E🔒%3C/text%3E%3C/svg%3E";
+                    }}
+                  />
+                </div>
               </div>
             </div>
 
-            {/* Profile Card */}
-            <div className="lg:col-span-5 animate-fade-in-up animation-delay-400">
-              <div className="relative group">
-                <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600 via-blue-600 to-purple-600 rounded-3xl blur-2xl opacity-30 group-hover:opacity-50 transition duration-1000 animate-pulse-slow" />
-                <div className="relative rounded-3xl bg-gradient-to-br from-gray-900/90 to-gray-800/90 border border-white/10 p-6 md:p-8 shadow-2xl backdrop-blur-2xl hover:scale-105 transition-transform duration-500">
-                  <div className="flex items-center gap-4 md:gap-5 mb-6">
-                    <div className="relative h-20 w-20 md:h-24 md:w-24 rounded-2xl overflow-hidden border-2 border-cyan-500/50 bg-gradient-to-br from-cyan-900 to-purple-900 flex items-center justify-center shadow-xl group-hover:rotate-6 transition-transform duration-500">
-                      {PROFILE_IMAGE_URL === "PASTE_YOUR_IMAGE_URL_HERE" ? (
-                        <svg className="w-10 h-10 md:w-12 md:h-12 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                        </svg>
-                      ) : (
-                        <img src={PROFILE_IMAGE_URL} alt="Profile" className="h-full w-full object-cover" />
-                      )}
-                      <div className="absolute inset-0 bg-gradient-to-t from-cyan-600/30 to-transparent" />
+            {/* Content Below Image */}
+            <div className="w-full max-w-5xl space-y-6 md:space-y-8 animate-fade-in-up animation-delay-200 text-center">
+              <div className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-red-500/10 to-yellow-500/10 border border-red-500/20 px-4 py-2">
+                <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
+                <span className="text-sm font-medium text-red-400">Available for Penetration Testing</span>
+              </div>
+
+              <h1 className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold leading-tight">
+                <span className="bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 bg-clip-text text-transparent animate-gradient">
+                  Penetration Tester
+                </span>
+                <br />
+                <span className="text-gray-300">& Security Researcher</span>
+              </h1>
+
+              <div className="space-y-4 text-base md:text-lg lg:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
+                <p className="font-semibold text-gray-200">
+                  I didn't stumble into security by accident—I was pulled in by one burning question:
+                </p>
+                <p className="text-xl md:text-2xl font-bold text-transparent bg-gradient-to-r from-red-400 via-orange-400 to-yellow-400 bg-clip-text italic">
+                  "How can we break systems before the bad guys do?"
+                </p>
+                <p>
+                  That curiosity evolved into a mission where I get to be both the attacker and the defender—finding vulnerabilities, exploiting weaknesses, and building stronger defenses.
+                </p>
+                <p>
+                  From web applications to network infrastructure, from wireless attacks to custom USB payloads—I've learned to think like a hacker to protect like a professional.
+                </p>
+                <p className="font-semibold text-red-400">
+                  Every exploit I find, every vulnerability I patch, makes the digital world a little bit safer.
+                </p>
+              </div>
+
+              <div className="flex flex-wrap gap-4 pt-4 justify-center">
+                <ButtonLink href="#pentest" variant="primary">
+                  View Projects
+                </ButtonLink>
+                <ButtonLink href="#contact" variant="secondary">
+                  Hire Me
+                </ButtonLink>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* USP Section - Unique Selling Point */}
+        <section id="usp" className="py-16 md:py-20 scroll-mt-20">
+          <div className="relative group animate-fade-in-up">
+            <div className="absolute -inset-1 bg-gradient-to-r from-red-600 via-orange-500 to-yellow-500 rounded-3xl blur-2xl opacity-40 group-hover:opacity-60 transition duration-500 animate-pulse-slow" />
+            <div className="relative rounded-3xl bg-gradient-to-br from-gray-900/95 to-gray-800/95 border border-red-500/30 p-12 md:p-16 lg:p-20 backdrop-blur-2xl text-center">
+              <div className="max-w-4xl mx-auto space-y-6">
+                <div className="text-6xl md:text-7xl lg:text-8xl mb-8">🛡️</div>
+                <h2 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-tight">
+                  <span className="bg-gradient-to-r from-red-400 via-orange-400 to-yellow-400 bg-clip-text text-transparent">
+                    No Place for
+                  </span>
+                  <br />
+                  <span className="text-white">
+                    Vulnerabilities.
+                  </span>
+                </h2>
+                <p className="text-lg md:text-xl lg:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed mt-8">
+                  I find them. I fix them. I make sure they never come back.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Education Section */}
+        <section id="education" className="py-16 md:py-20 scroll-mt-20">
+          <SectionTitle
+            title="Education"
+            subtitle="Academic foundation in information technology"
+          />
+
+          <div className="relative group animate-fade-in-up">
+            <div className="absolute -inset-1 bg-gradient-to-r from-red-600 via-orange-500 to-yellow-500 rounded-3xl blur-xl opacity-30 group-hover:opacity-50 transition duration-500" />
+            <div className="relative rounded-3xl bg-gradient-to-br from-gray-900/90 to-gray-800/90 border border-white/10 p-8 md:p-10 backdrop-blur-xl hover:scale-[1.01] transition-transform duration-500">
+              <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-start">
+                {/* University Icon */}
+                <div className="flex-shrink-0">
+                  <div className="w-20 h-20 md:w-24 md:h-24 rounded-2xl bg-gradient-to-br from-red-500 via-orange-500 to-yellow-500 flex items-center justify-center group-hover:rotate-6 transition-transform duration-500">
+                    <svg className="w-10 h-10 md:w-12 md:h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222" />
+                    </svg>
+                  </div>
+                </div>
+
+                {/* Education Details */}
+                <div className="flex-1 space-y-4">
+                  <div>
+                    <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
+                      Bachelor's Degree in Information Technology
+                    </h3>
+                    <p className="text-xl md:text-2xl font-semibold bg-gradient-to-r from-red-400 to-yellow-400 bg-clip-text text-transparent">
+                      Egyptian E-Learning University (EELU)
+                    </p>
+                  </div>
+
+                  <div className="flex flex-wrap gap-4 text-base md:text-lg text-gray-300">
+                    <div className="flex items-center gap-2">
+                      <svg className="w-5 h-5 text-red-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
+                      </svg>
+                      <span>2020 - 2024</span>
                     </div>
+                    <div className="flex items-center gap-2">
+                      <svg className="w-5 h-5 text-orange-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                      </svg>
+                      <span>IT Department</span>
+                    </div>
+                  </div>
+
+                  <div className="inline-flex items-center gap-3 px-5 py-3 rounded-xl bg-gradient-to-r from-red-500/20 via-orange-500/20 to-yellow-500/20 border border-red-500/30">
+                    <svg className="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
                     <div>
-                      <p className="text-lg md:text-xl font-bold text-white">Abanoub Emad Felix</p>
-                      <p className="text-xs md:text-sm text-cyan-400">Laravel Backend Developer</p>
-                      <p className="text-xs md:text-sm text-gray-400">Cairo, Egypt</p>
+                      <p className="text-sm text-gray-400">Grade</p>
+                      <p className="text-lg md:text-xl font-bold text-white">Very Good with Honors</p>
                     </div>
                   </div>
 
-                  <div className="space-y-3">
-                    <div className="rounded-xl bg-white/5 border border-white/10 p-3 md:p-4 hover:border-cyan-400/50 hover:bg-white/10 transition-all duration-300 group/item">
-                      <p className="text-xs text-gray-500 mb-1 flex items-center gap-2">
-                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                          <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                          <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                        </svg>
-                        Email
-                      </p>
-                      <a className="text-sm md:text-base font-medium text-gray-200 hover:text-cyan-400 transition-colors break-all" href={`mailto:${LINKS.email}`}>
-                        {LINKS.email}
-                      </a>
-                    </div>
-                    <div className="rounded-xl bg-white/5 border border-white/10 p-3 md:p-4 hover:border-cyan-400/50 hover:bg-white/10 transition-all duration-300">
-                      <p className="text-xs text-gray-500 mb-1 flex items-center gap-2">
-                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                          <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-                        </svg>
-                        Phone
-                      </p>
-                      <a className="text-sm md:text-base font-medium text-gray-200 hover:text-cyan-400 transition-colors" href={`tel:${LINKS.phone}`}>
-                        {LINKS.phone}
-                      </a>
-                    </div>
-                  </div>
-
-                  <div className="flex flex-wrap gap-3 mt-6">
-                    <ButtonLink href={LINKS.github} variant="secondary">
-                      GitHub
-                    </ButtonLink>
-                    <ButtonLink href={LINKS.linkedin} variant="secondary">
-                      LinkedIn
-                    </ButtonLink>
+                  <div className="pt-2">
+                    <p className="text-gray-400 leading-relaxed">
+                      Comprehensive study in information technology covering software development, network security, database management, and system administration—building the technical foundation for my penetration testing career.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -338,127 +561,64 @@ export default function App() {
           </div>
         </section>
 
-        {/* About */}
-        <section id="about" className="py-16 md:py-20 scroll-mt-20">
-          <SectionTitle
-            title="About"
-            subtitle="A quick snapshot of who I am and how I work."
-          />
-          <div className="relative group animate-fade-in-up">
-            <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600 to-purple-600 rounded-3xl blur-xl opacity-20 group-hover:opacity-40 transition duration-500" />
-            <div className="relative rounded-3xl bg-gradient-to-br from-gray-900/90 to-gray-800/90 border border-white/10 p-6 md:p-8 backdrop-blur-xl hover:scale-[1.02] transition-transform duration-500">
-              <p className="text-base md:text-lg text-gray-300 leading-relaxed">
-                As a Junior Software Engineer with a knack for backend development,
-                I thrive in creating scalable web applications using PHP and Laravel.
-                Graduating with a degree in Information Technology,
-                I have honed my skills in programming and database management.
-                At MEC Academy, I led initiatives that improved team productivity by 25% through innovative backend solutions and secure RESTful APIs.
-                I am eager to bring my expertise to ambitious teams committed to pushing the boundaries of web development.
-                Feel free to explore my projects on GitHub: https://github.com/empeo.
-                Let's connect to explore potential collaborations in crafting innovative web solutions.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Skills */}
+        {/* Skills Section */}
         <section id="skills" className="py-16 md:py-20 scroll-mt-20">
           <SectionTitle
             title="Skills"
-            subtitle="Grouped by what I use most in real projects."
+            subtitle="Tools and technologies I use to identify and exploit vulnerabilities"
           />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { title: "Frontend", content: "HTML5, CSS3, JavaScript, Bootstrap, Tailwind CSS, Materialize", icon: "M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" },
-              { title: "Backend", content: "PHP (Native), Laravel, RESTful API Development", icon: "M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" },
-              { title: "Databases", content: "MySQL", icon: "M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" },
-              { title: "Tools & Testing", content: "Git, GitHub, Postman", icon: "M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" },
-            ].map((skill, i) => (
+              {
+                title: "Web Security",
+                skills: ["Burp Suite", "OWASP ZAP", "SQLMap", "XSStrike", "Nikto"],
+                icon: "🔐",
+                gradient: "from-red-500 to-orange-500"
+              },
+              {
+                title: "Network Testing",
+                skills: ["Nmap", "Metasploit", "Wireshark", "Netcat", "Nessus"],
+                icon: "🌐",
+                gradient: "from-orange-500 to-yellow-500"
+              },
+              {
+                title: "Wireless Security",
+                skills: ["Aircrack-ng", "Reaver", "Wifite", "WiFi Pineapple", "Kismet"],
+                icon: "📡",
+                gradient: "from-yellow-500 to-red-500"
+              },
+              {
+                title: "Exploitation",
+                skills: ["Metasploit Framework", "Empire", "Cobalt Strike", "Social Engineer Toolkit"],
+                icon: "💥",
+                gradient: "from-red-600 to-orange-600"
+              },
+              {
+                title: "Scripting & Automation",
+                skills: ["Python", "Bash", "PowerShell", "Ruby", "JavaScript"],
+                icon: "⚙️",
+                gradient: "from-orange-600 to-yellow-600"
+              },
+              {
+                title: "USB & Hardware",
+                skills: ["Rubber Ducky", "WiFi Pineapple", "LAN Turtle", "Arduino", "Raspberry Pi"],
+                icon: "🔌",
+                gradient: "from-yellow-600 to-red-600"
+              }
+            ].map((category, i) => (
               <div key={i} className="group relative animate-fade-in-up" style={{ animationDelay: `${i * 100}ms` }}>
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-cyan-600 to-purple-600 rounded-2xl blur opacity-0 group-hover:opacity-40 transition duration-500" />
-                <div className="relative rounded-2xl bg-gradient-to-br from-gray-900/90 to-gray-800/90 border border-white/10 p-5 md:p-6 hover:border-cyan-400/50 transition-all duration-300 hover:scale-105 backdrop-blur-xl h-full">
-                  <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-purple-600 flex items-center justify-center group-hover:rotate-12 transition-transform duration-500">
-                      <svg className="w-5 h-5 md:w-6 md:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={skill.icon} />
-                      </svg>
+                <div className={`absolute -inset-0.5 bg-gradient-to-r ${category.gradient} rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-500`} />
+                <div className="relative rounded-2xl bg-gradient-to-br from-gray-900/90 to-gray-800/90 border border-white/10 p-6 backdrop-blur-xl hover:scale-[1.02] transition-transform duration-500 h-full">
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${category.gradient} flex items-center justify-center text-2xl`}>
+                      {category.icon}
                     </div>
-                    <div className="flex-1 min-w-0">
-                      <h3 className="text-lg md:text-xl font-bold text-cyan-400 mb-2 md:mb-3">{skill.title}</h3>
-                      <p className="text-sm md:text-base text-gray-300 break-words">{skill.content}</p>
-                    </div>
+                    <h3 className="text-xl font-bold text-white">{category.title}</h3>
                   </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Services */}
-        <section id="services" className="py-16 md:py-20 scroll-mt-20">
-          <SectionTitle
-            title="Services"
-            subtitle="What I can deliver for your product or business."
-          />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-            {[
-              "Laravel RESTful API Development",
-              "Authentication (Sanctum / Passport)",
-              "Authorization (Gates & Middleware)",
-              "Admin Dashboards",
-              "Performance Optimization (Caching)",
-              "Bug Fixing & Refactoring",
-              "Deployment (Vercel / GitHub Pages / Shared Hosting)",
-            ].map((s, i) => (
-              <div key={i} className="group relative animate-fade-in-up" style={{ animationDelay: `${i * 50}ms` }}>
-                <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-pink-600 rounded-2xl blur opacity-0 group-hover:opacity-40 transition duration-500" />
-                <div className="relative rounded-2xl bg-gradient-to-br from-gray-900/90 to-gray-800/90 border border-white/10 p-4 md:p-6 hover:border-purple-400/50 transition-all duration-300 hover:scale-105 backdrop-blur-xl h-full">
-                  <div className="flex items-start gap-3">
-                    <div className="flex-shrink-0 w-2 h-2 rounded-full bg-gradient-to-r from-cyan-400 to-purple-500 mt-2 group-hover:scale-150 transition-transform duration-300" />
-                    <p className="font-medium text-sm md:text-base text-gray-200 break-words">{s}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        {/* Projects */}
-        <section id="projects" className="py-16 md:py-20 scroll-mt-20">
-          <SectionTitle
-            title="Featured Projects"
-            subtitle="A selection of projects demonstrating backend APIs, real deployments, and practical outcomes."
-          />
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
-            {PROJECTS.map((p, i) => (
-              <div key={i} className="group relative animate-fade-in-up" style={{ animationDelay: `${i * 100}ms` }}>
-                <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600 via-blue-600 to-purple-600 rounded-3xl blur-xl opacity-20 group-hover:opacity-50 transition duration-700" />
-                <div className="relative rounded-3xl bg-gradient-to-br from-gray-900/90 to-gray-800/90 border border-white/10 p-6 md:p-8 hover:border-cyan-400/50 transition-all duration-500 h-full flex flex-col backdrop-blur-xl group-hover:scale-[1.02]">
-                  <div className="flex-1">
-                    <div className="flex items-start justify-between gap-4 mb-4">
-                      <h3 className="text-xl md:text-2xl font-bold text-transparent bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text break-words">
-                        {p.name}
-                      </h3>
-                      <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-cyan-500 to-purple-600 flex items-center justify-center group-hover:rotate-180 transition-transform duration-700">
-                        <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                        </svg>
-                      </div>
-                    </div>
-                    <p className="text-sm md:text-base text-gray-300 mb-6 break-words">{p.desc}</p>
-
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {p.tags.map((t) => (
-                        <Pill key={t}>{t}</Pill>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div className="flex flex-wrap gap-3 pt-4 border-t border-white/10">
-                    {p.links.map((l) => (
-                      <ButtonLink key={l.href} href={l.href} variant="secondary">
-                        {l.label}
-                      </ButtonLink>
+                  <div className="flex flex-wrap gap-2">
+                    {category.skills.map((skill, j) => (
+                      <Pill key={j}>{skill}</Pill>
                     ))}
                   </div>
                 </div>
@@ -467,64 +627,45 @@ export default function App() {
           </div>
         </section>
 
-        {/* Experience */}
-        <section id="experience" className="py-16 md:py-20 scroll-mt-20">
-          <SectionTitle title="Experience & Training" subtitle="Highlights from real work and focused learning." />
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-            <div className="group relative animate-fade-in-up">
-              <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-3xl blur-xl opacity-20 group-hover:opacity-40 transition duration-500" />
-              <div className="relative rounded-3xl bg-gradient-to-br from-gray-900/90 to-gray-800/90 border border-white/10 p-6 md:p-8 backdrop-blur-xl hover:scale-[1.02] transition-transform duration-500 h-full">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center group-hover:rotate-12 transition-transform duration-500">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <h3 className="text-2xl md:text-3xl font-bold text-cyan-400">Experience</h3>
-                </div>
-                <div className="space-y-4">
-                  {[
-                    "GommlaBack — Laravel API for a mobile app on Google Play",
-                    "Saint George Marketplace — Laravel backend for e-commerce",
-                    "Saint Hermina — Frontend landing page (HTML/CSS/JS)"
-                  ].map((exp, i) => (
-                    <div key={i} className="flex items-start gap-3 text-sm md:text-base text-gray-300 hover:text-cyan-300 transition-colors duration-300 p-3 rounded-xl hover:bg-white/5">
-                      <div className="flex-shrink-0 w-2 h-2 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 mt-2" />
-                      <p className="break-words">{exp}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
+        {/* Penetration Testing Projects */}
+        <section id="pentest" className="py-16 md:py-20 scroll-mt-20">
+          <SectionTitle
+            title="Penetration Testing Projects"
+            subtitle="Real-world security assessments and vulnerability research"
+          />
 
-            <div className="group relative animate-fade-in-up animation-delay-200">
-              <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-pink-600 rounded-3xl blur-xl opacity-20 group-hover:opacity-40 transition duration-500" />
-              <div className="relative rounded-3xl bg-gradient-to-br from-gray-900/90 to-gray-800/90 border border-white/10 p-6 md:p-8 backdrop-blur-xl hover:scale-[1.02] transition-transform duration-500 h-full">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center group-hover:rotate-12 transition-transform duration-500">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                    </svg>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {PENTEST_PROJECTS.map((project, i) => (
+              <div key={i} className="group relative animate-fade-in-up" style={{ animationDelay: `${i * 100}ms` }}>
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-red-600 via-orange-500 to-yellow-500 rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-500" />
+                <div className="relative rounded-2xl bg-gradient-to-br from-gray-900/90 to-gray-800/90 border border-white/10 p-6 md:p-8 backdrop-blur-xl hover:scale-[1.02] transition-transform duration-500 h-full">
+                  <div className="flex items-start gap-4 mb-4">
+                    <div className="text-4xl">{project.icon}</div>
+                    <div className="flex-1">
+                      <h3 className="text-xl md:text-2xl font-bold text-red-400 mb-2">{project.name}</h3>
+                      <p className="text-sm md:text-base text-gray-300 mb-4">{project.desc}</p>
+                    </div>
                   </div>
-                  <h3 className="text-2xl md:text-3xl font-bold text-purple-400">Training</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {project.tags.map((tag, j) => (
+                      <Pill key={j}>{tag}</Pill>
+                    ))}
+                  </div>
                 </div>
-                <p className="text-sm md:text-base text-gray-300 p-3 rounded-xl hover:bg-white/5 transition-colors duration-300 break-words">
-                  PHP Laravel Backend — MEC Academy (2023)
-                </p>
               </div>
-            </div>
+            ))}
           </div>
         </section>
 
         {/* Contact */}
         <section id="contact" className="py-16 md:py-20 pb-16 md:pb-32 scroll-mt-20">
           <div className="relative group animate-fade-in-up">
-            <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600 via-blue-600 to-purple-600 rounded-3xl blur-2xl opacity-30 group-hover:opacity-50 transition duration-500" />
+            <div className="absolute -inset-1 bg-gradient-to-r from-red-600 via-orange-600 to-yellow-600 rounded-3xl blur-2xl opacity-30 group-hover:opacity-50 transition duration-500" />
             <div className="relative rounded-3xl bg-gradient-to-br from-gray-900/90 to-gray-800/90 border border-white/10 p-8 md:p-10 backdrop-blur-2xl hover:scale-[1.01] transition-transform duration-500">
               <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
                 <div className="space-y-4">
                   <div className="flex items-center gap-3 group/item">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center group-hover/item:scale-110 transition-transform duration-300">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-red-500 to-orange-600 flex items-center justify-center group-hover/item:scale-110 transition-transform duration-300">
                       <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
                         <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
@@ -532,20 +673,20 @@ export default function App() {
                     </div>
                     <div>
                       <p className="text-sm text-gray-500">Email</p>
-                      <a className="text-base md:text-lg font-semibold text-cyan-400 hover:text-cyan-300 transition-colors break-all" href={`mailto:${LINKS.email}`}>
+                      <a className="text-base md:text-lg font-semibold text-red-400 hover:text-red-300 transition-colors break-all" href={`mailto:${LINKS.email}`}>
                         {LINKS.email}
                       </a>
                     </div>
                   </div>
                   <div className="flex items-center gap-3 group/item">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center group-hover/item:scale-110 transition-transform duration-300">
+                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-orange-500 to-yellow-600 flex items-center justify-center group-hover/item:scale-110 transition-transform duration-300">
                       <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
                         <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                       </svg>
                     </div>
                     <div>
                       <p className="text-sm text-gray-500">Phone</p>
-                      <a className="text-base md:text-lg font-semibold text-cyan-400 hover:text-cyan-300 transition-colors" href={`tel:${LINKS.phone}`}>
+                      <a className="text-base md:text-lg font-semibold text-red-400 hover:text-red-300 transition-colors" href={`tel:${LINKS.phone}`}>
                         {LINKS.phone}
                       </a>
                     </div>
@@ -565,7 +706,7 @@ export default function App() {
 
           <footer className="py-10 md:py-12 text-center">
             <p className="text-sm md:text-base text-gray-500">
-              © {new Date().getFullYear()} Abanoub Emad Felix • Built with React + Tailwind
+              © {new Date().getFullYear()} Abanoub Emad Felix • Penetration Tester & Security Researcher
             </p>
           </footer>
         </section>
@@ -589,6 +730,17 @@ export default function App() {
           }
           50% {
             transform: translateY(-20px);
+          }
+        }
+
+        @keyframes float-pulse {
+          0%, 100% {
+            transform: translateY(0px) scale(1);
+            opacity: 0.15;
+          }
+          50% {
+            transform: translateY(-20px) scale(1.1);
+            opacity: 0.25;
           }
         }
 
@@ -619,12 +771,70 @@ export default function App() {
           }
         }
 
+        @keyframes scan-line {
+          0% {
+            transform: translateY(-100%);
+          }
+          100% {
+            transform: translateY(100vh);
+          }
+        }
+
+        @keyframes grid-animation {
+          0% {
+            background-position: 0 0;
+          }
+          100% {
+            background-position: 50px 50px;
+          }
+        }
+
+        @keyframes glitch {
+          0% {
+            clip-path: inset(40% 0 61% 0);
+            transform: translate(0);
+          }
+          20% {
+            clip-path: inset(92% 0 1% 0);
+            transform: translate(-2px, 2px);
+          }
+          40% {
+            clip-path: inset(43% 0 1% 0);
+            transform: translate(2px, -2px);
+          }
+          60% {
+            clip-path: inset(25% 0 58% 0);
+            transform: translate(-2px, 2px);
+          }
+          80% {
+            clip-path: inset(54% 0 7% 0);
+            transform: translate(2px, -2px);
+          }
+          100% {
+            clip-path: inset(58% 0 43% 0);
+            transform: translate(0);
+          }
+        }
+
+        @keyframes circuit-flow {
+          0% {
+            stroke-dashoffset: 1000;
+          }
+          100% {
+            stroke-dashoffset: 0;
+          }
+        }
+
         .animate-fade-in-up {
           animation: fade-in-up 0.8s ease-out forwards;
         }
 
         .animate-float {
           animation: float 6s ease-in-out infinite;
+        }
+
+        .animate-float-pulse {
+          animation: float-pulse 8s ease-in-out infinite;
         }
 
         .animate-expand {
@@ -638,6 +848,45 @@ export default function App() {
 
         .animate-pulse-slow {
           animation: pulse-slow 3s ease-in-out infinite;
+        }
+
+        .scan-line {
+          background: linear-gradient(
+            to bottom,
+            transparent 0%,
+            rgba(239, 68, 68, 0.1) 50%,
+            transparent 100%
+          );
+          height: 100px;
+          animation: scan-line 4s linear infinite;
+        }
+
+        .grid-animation {
+          animation: grid-animation 20s linear infinite;
+        }
+
+        .glitch-overlay {
+          background: linear-gradient(
+            to right,
+            rgba(239, 68, 68, 0.1),
+            rgba(249, 115, 22, 0.1)
+          );
+          animation: glitch 5s infinite;
+        }
+
+        .circuit-path-1,
+        .circuit-path-2,
+        .circuit-path-3 {
+          stroke-dasharray: 1000;
+          animation: circuit-flow 15s linear infinite;
+        }
+
+        .circuit-path-2 {
+          animation-delay: 5s;
+        }
+
+        .circuit-path-3 {
+          animation-delay: 10s;
         }
 
         .animation-delay-200 {
