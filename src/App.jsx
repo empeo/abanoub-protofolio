@@ -42,6 +42,54 @@ const PENTEST_PROJECTS = [
   },
 ];
 
+const EXPERIENCE = [
+  {
+    title: "DEPI Penetration Testing Program",
+    organization: "Ministry of Communications and Information Technology - Egypt",
+    period: "2024 - Present",
+    type: "Training Program",
+    description: "Intensive penetration testing training program organized by the Egyptian Ministry of Communications, focusing on practical security assessments and ethical hacking techniques.",
+    highlights: [
+      "Advanced penetration testing methodologies",
+      "Real-world vulnerability assessment scenarios",
+      "Network security and exploitation techniques",
+      "Web application security testing"
+    ],
+    icon: "🎓",
+    color: "from-red-500 to-orange-500"
+  },
+  {
+    title: "CTF Challenges & Labs",
+    organization: "TryHackMe Platform",
+    period: "2023 - Present",
+    type: "Practical Training",
+    description: "Active participation in Capture The Flag challenges and hands-on cybersecurity labs, developing practical skills in penetration testing and security research.",
+    highlights: [
+      "Completed multiple CTF challenges",
+      "Hands-on penetration testing labs",
+      "Linux privilege escalation techniques",
+      "Network scanning and enumeration"
+    ],
+    icon: "🚩",
+    color: "from-orange-500 to-yellow-500"
+  },
+  {
+    title: "Freelance Security Projects",
+    organization: "Independent Security Researcher",
+    period: "2024 - Present",
+    type: "Freelance",
+    description: "Providing security assessments and penetration testing services for small businesses and web applications, identifying vulnerabilities and recommending security improvements.",
+    highlights: [
+      "Web application vulnerability assessments",
+      "Security audits and reporting",
+      "Custom penetration testing scripts",
+      "Security consultation services"
+    ],
+    icon: "💼",
+    color: "from-yellow-500 to-red-500"
+  }
+];
+
 function SectionTitle({ title, subtitle }) {
   return (
     <div className="mb-12 animate-fade-in-up">
@@ -291,6 +339,40 @@ export default function App() {
         <canvas id="binary-canvas" className="w-full h-full" />
       </div>
 
+      {/* Hacker & Security Images Floating */}
+      <div className="fixed inset-0 opacity-5 pointer-events-none z-0 overflow-hidden">
+        <div className="absolute top-10 left-10 w-32 h-32 text-6xl animate-float-diagonal-1">🕵️</div>
+        <div className="absolute top-40 right-20 w-32 h-32 text-6xl animate-float-diagonal-2">🛡️</div>
+        <div className="absolute bottom-40 left-20 w-32 h-32 text-6xl animate-float-diagonal-3">🔐</div>
+        <div className="absolute bottom-20 right-40 w-32 h-32 text-6xl animate-float-diagonal-4">🔒</div>
+        <div className="absolute top-1/3 left-1/4 w-32 h-32 text-6xl animate-float-diagonal-5">💻</div>
+        <div className="absolute top-2/3 right-1/3 w-32 h-32 text-6xl animate-float-diagonal-6">⚠️</div>
+        <div className="absolute top-1/2 left-10 w-32 h-32 text-6xl animate-float-diagonal-7">🚨</div>
+        <div className="absolute bottom-1/3 right-10 w-32 h-32 text-6xl animate-float-diagonal-8">🔑</div>
+      </div>
+
+      {/* Password Symbols Floating */}
+      <div className="fixed inset-0 opacity-8 pointer-events-none z-0 overflow-hidden">
+        <div className="absolute top-20 left-1/3 text-2xl text-red-500 animate-float-slow-1 font-mono">***********</div>
+        <div className="absolute top-1/2 right-1/4 text-2xl text-orange-500 animate-float-slow-2 font-mono">••••••••</div>
+        <div className="absolute bottom-1/4 left-1/5 text-2xl text-yellow-500 animate-float-slow-3 font-mono">####</div>
+        <div className="absolute top-3/4 right-1/3 text-2xl text-red-400 animate-float-slow-4 font-mono">0x7F</div>
+      </div>
+
+      {/* Spotlights / Light Beams */}
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div className="absolute top-0 left-1/4 w-1 h-full bg-gradient-to-b from-red-500/30 via-red-500/5 to-transparent animate-spotlight-1" />
+        <div className="absolute top-0 right-1/3 w-1 h-full bg-gradient-to-b from-orange-500/30 via-orange-500/5 to-transparent animate-spotlight-2" />
+        <div className="absolute top-0 left-2/3 w-1 h-full bg-gradient-to-b from-yellow-500/30 via-yellow-500/5 to-transparent animate-spotlight-3" />
+      </div>
+
+      {/* Radial Glow Effects */}
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-red-500/20 rounded-full filter blur-3xl animate-glow-pulse-1" />
+        <div className="absolute top-1/2 right-1/4 w-96 h-96 bg-orange-500/20 rounded-full filter blur-3xl animate-glow-pulse-2" />
+        <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-yellow-500/20 rounded-full filter blur-3xl animate-glow-pulse-3" />
+      </div>
+
       {/* Hexagonal Grid Pattern */}
       <div className="fixed inset-0 opacity-5 pointer-events-none z-0">
         <div className="absolute inset-0" style={{
@@ -367,6 +449,7 @@ export default function App() {
           <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
             <NavLink href="#about">About</NavLink>
             <NavLink href="#education">Education</NavLink>
+            <NavLink href="#experience">Experience</NavLink>
             <NavLink href="#skills">Skills</NavLink>
             <NavLink href="#pentest">Projects</NavLink>
             <NavLink href="#contact">Contact</NavLink>
@@ -394,6 +477,7 @@ export default function App() {
             <nav className="flex flex-col px-4 py-4 space-y-2">
               <NavLink href="#about">About</NavLink>
               <NavLink href="#education">Education</NavLink>
+              <NavLink href="#experience">Experience</NavLink>
               <NavLink href="#skills">Skills</NavLink>
               <NavLink href="#pentest">Projects</NavLink>
               <NavLink href="#contact">Contact</NavLink>
@@ -472,21 +556,66 @@ export default function App() {
         <section id="usp" className="py-16 md:py-20 scroll-mt-20">
           <div className="relative group animate-fade-in-up">
             <div className="absolute -inset-1 bg-gradient-to-r from-red-600 via-orange-500 to-yellow-500 rounded-3xl blur-2xl opacity-40 group-hover:opacity-60 transition duration-500 animate-pulse-slow" />
-            <div className="relative rounded-3xl bg-gradient-to-br from-gray-900/95 to-gray-800/95 border border-red-500/30 p-12 md:p-16 lg:p-20 backdrop-blur-2xl text-center">
-              <div className="max-w-4xl mx-auto space-y-6">
-                <div className="text-6xl md:text-7xl lg:text-8xl mb-8">🛡️</div>
-                <h2 className="text-3xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-tight">
-                  <span className="bg-gradient-to-r from-red-400 via-orange-400 to-yellow-400 bg-clip-text text-transparent">
-                    No Place for
-                  </span>
-                  <br />
-                  <span className="text-white">
-                    Vulnerabilities.
-                  </span>
-                </h2>
-                <p className="text-lg md:text-xl lg:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed mt-8">
-                  I find them. I fix them. I make sure they never come back.
-                </p>
+            <div className="relative rounded-3xl bg-gradient-to-br from-gray-900/95 to-gray-800/95 border border-red-500/30 p-12 md:p-16 lg:p-20 backdrop-blur-2xl text-center overflow-hidden">
+              {/* Decorative Lines */}
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-transparent via-red-500 to-transparent opacity-50" />
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-transparent via-yellow-500 to-transparent opacity-50" />
+
+              <div className="max-w-4xl mx-auto space-y-8 relative">
+                {/* Shield Icon with Glow */}
+                <div className="relative inline-block">
+                  <div className="absolute inset-0 blur-2xl bg-gradient-to-r from-red-500 via-orange-500 to-yellow-500 opacity-30 animate-pulse-slow" />
+                  <div className="relative text-6xl md:text-7xl lg:text-8xl animate-float">🛡️</div>
+                </div>
+
+                {/* English Title */}
+                <div className="space-y-4">
+                  <h2 className="text-4xl md:text-6xl lg:text-7xl font-black leading-tight">
+                    <span className="inline-block bg-gradient-to-r from-red-400 via-orange-400 to-yellow-400 bg-clip-text text-transparent animate-gradient">
+                      No Blind Spots.
+                    </span>
+                  </h2>
+
+                  {/* Divider */}
+                  <div className="flex items-center justify-center gap-4 py-4">
+                    <div className="w-16 h-0.5 bg-gradient-to-r from-transparent to-red-500" />
+                    <div className="w-2 h-2 rounded-full bg-orange-500 animate-pulse" />
+                    <div className="w-16 h-0.5 bg-gradient-to-l from-transparent to-yellow-500" />
+                  </div>
+
+                  {/* Arabic Quote */}
+                  <div className="relative inline-block">
+                    <div className="absolute -inset-4 bg-gradient-to-r from-red-500/10 via-orange-500/10 to-yellow-500/10 rounded-2xl blur-xl" />
+                    <blockquote className="relative px-8 py-6 rounded-xl border border-red-500/20 bg-black/20 backdrop-blur-sm">
+                      <div className="text-3xl md:text-4xl lg:text-5xl font-bold">
+                        <span className="text-red-400" style={{ fontFamily: 'Arial, sans-serif' }}>
+                          مفيش نقاط عمياء
+                        </span>
+                      </div>
+                      {/* Quote Marks */}
+                      <div className="absolute -top-2 -left-2 text-4xl text-red-500/30">"</div>
+                      <div className="absolute -bottom-2 -right-2 text-4xl text-yellow-500/30">"</div>
+                    </blockquote>
+                  </div>
+                </div>
+
+                {/* Description */}
+                <div className="pt-4">
+                  <p className="text-lg md:text-xl lg:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed font-medium">
+                    <span className="text-red-400">Vulnerabilities found.</span>
+                    {" "}
+                    <span className="text-orange-400">Risks reduced.</span>
+                    {" "}
+                    <span className="text-yellow-400">Security improved.</span>
+                  </p>
+                </div>
+
+                {/* Bottom Accent */}
+                <div className="flex items-center justify-center gap-2 pt-6">
+                  <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
+                  <div className="w-2 h-2 rounded-full bg-orange-500 animate-pulse animation-delay-200" />
+                  <div className="w-2 h-2 rounded-full bg-yellow-500 animate-pulse animation-delay-400" />
+                </div>
               </div>
             </div>
           </div>
@@ -558,6 +687,69 @@ export default function App() {
                 </div>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* Experience Section */}
+        <section id="experience" className="py-16 md:py-20 scroll-mt-20">
+          <SectionTitle
+            title="Experience"
+            subtitle="Hands-on training and practical security work"
+          />
+
+          <div className="space-y-6">
+            {EXPERIENCE.map((exp, i) => (
+              <div key={i} className="group relative animate-fade-in-up" style={{ animationDelay: `${i * 100}ms` }}>
+                <div className={`absolute -inset-0.5 bg-gradient-to-r ${exp.color} rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-500`} />
+                <div className="relative rounded-2xl bg-gradient-to-br from-gray-900/90 to-gray-800/90 border border-white/10 p-6 md:p-8 backdrop-blur-xl hover:scale-[1.01] transition-transform duration-500">
+                  <div className="flex flex-col md:flex-row gap-6">
+                    {/* Icon */}
+                    <div className="flex-shrink-0">
+                      <div className={`w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-gradient-to-br ${exp.color} flex items-center justify-center text-4xl md:text-5xl group-hover:scale-110 transition-transform duration-500`}>
+                        {exp.icon}
+                      </div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="flex-1 space-y-3">
+                      <div>
+                        <div className="flex flex-wrap items-center gap-3 mb-2">
+                          <h3 className="text-xl md:text-2xl font-bold text-white">{exp.title}</h3>
+                          <span className="px-3 py-1 rounded-full bg-red-500/20 border border-red-500/30 text-xs font-semibold text-red-400">
+                            {exp.type}
+                          </span>
+                        </div>
+                        <p className="text-base md:text-lg font-semibold bg-gradient-to-r from-red-400 to-yellow-400 bg-clip-text text-transparent">
+                          {exp.organization}
+                        </p>
+                        <div className="flex items-center gap-2 mt-2 text-sm text-gray-400">
+                          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
+                          </svg>
+                          <span>{exp.period}</span>
+                        </div>
+                      </div>
+
+                      <p className="text-gray-300 leading-relaxed">
+                        {exp.description}
+                      </p>
+
+                      <div className="space-y-2 pt-2">
+                        <p className="text-sm font-semibold text-red-400">Key Highlights:</p>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                          {exp.highlights.map((highlight, j) => (
+                            <div key={j} className="flex items-start gap-2">
+                              <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-red-500 to-yellow-500 mt-2 flex-shrink-0" />
+                              <span className="text-sm text-gray-400">{highlight}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </section>
 
@@ -744,6 +936,188 @@ export default function App() {
           }
         }
 
+        @keyframes float-diagonal-1 {
+          0%, 100% {
+            transform: translate(0, 0) rotate(0deg);
+          }
+          50% {
+            transform: translate(30px, -30px) rotate(15deg);
+          }
+        }
+
+        @keyframes float-diagonal-2 {
+          0%, 100% {
+            transform: translate(0, 0) rotate(0deg);
+          }
+          50% {
+            transform: translate(-30px, 30px) rotate(-15deg);
+          }
+        }
+
+        @keyframes float-diagonal-3 {
+          0%, 100% {
+            transform: translate(0, 0) rotate(0deg);
+          }
+          50% {
+            transform: translate(25px, 25px) rotate(10deg);
+          }
+        }
+
+        @keyframes float-diagonal-4 {
+          0%, 100% {
+            transform: translate(0, 0) rotate(0deg);
+          }
+          50% {
+            transform: translate(-25px, -25px) rotate(-10deg);
+          }
+        }
+
+        @keyframes float-diagonal-5 {
+          0%, 100% {
+            transform: translate(0, 0) rotate(0deg);
+          }
+          50% {
+            transform: translate(40px, 20px) rotate(20deg);
+          }
+        }
+
+        @keyframes float-diagonal-6 {
+          0%, 100% {
+            transform: translate(0, 0) rotate(0deg);
+          }
+          50% {
+            transform: translate(-20px, 40px) rotate(-20deg);
+          }
+        }
+
+        @keyframes float-diagonal-7 {
+          0%, 100% {
+            transform: translate(0, 0) rotate(0deg);
+          }
+          50% {
+            transform: translate(35px, -20px) rotate(12deg);
+          }
+        }
+
+        @keyframes float-diagonal-8 {
+          0%, 100% {
+            transform: translate(0, 0) rotate(0deg);
+          }
+          50% {
+            transform: translate(-35px, 20px) rotate(-12deg);
+          }
+        }
+
+        @keyframes float-slow-1 {
+          0%, 100% {
+            transform: translateY(0) translateX(0);
+            opacity: 0.3;
+          }
+          50% {
+            transform: translateY(-40px) translateX(20px);
+            opacity: 0.6;
+          }
+        }
+
+        @keyframes float-slow-2 {
+          0%, 100% {
+            transform: translateY(0) translateX(0);
+            opacity: 0.4;
+          }
+          50% {
+            transform: translateY(40px) translateX(-20px);
+            opacity: 0.7;
+          }
+        }
+
+        @keyframes float-slow-3 {
+          0%, 100% {
+            transform: translateY(0) translateX(0);
+            opacity: 0.3;
+          }
+          50% {
+            transform: translateY(-30px) translateX(-15px);
+            opacity: 0.6;
+          }
+        }
+
+        @keyframes float-slow-4 {
+          0%, 100% {
+            transform: translateY(0) translateX(0);
+            opacity: 0.4;
+          }
+          50% {
+            transform: translateY(35px) translateX(15px);
+            opacity: 0.7;
+          }
+        }
+
+        @keyframes spotlight-1 {
+          0%, 100% {
+            opacity: 0.2;
+            transform: translateX(0);
+          }
+          50% {
+            opacity: 0.4;
+            transform: translateX(10px);
+          }
+        }
+
+        @keyframes spotlight-2 {
+          0%, 100% {
+            opacity: 0.3;
+            transform: translateX(0);
+          }
+          50% {
+            opacity: 0.5;
+            transform: translateX(-10px);
+          }
+        }
+
+        @keyframes spotlight-3 {
+          0%, 100% {
+            opacity: 0.25;
+            transform: translateX(0);
+          }
+          50% {
+            opacity: 0.45;
+            transform: translateX(5px);
+          }
+        }
+
+        @keyframes glow-pulse-1 {
+          0%, 100% {
+            opacity: 0.1;
+            transform: scale(1);
+          }
+          50% {
+            opacity: 0.3;
+            transform: scale(1.2);
+          }
+        }
+
+        @keyframes glow-pulse-2 {
+          0%, 100% {
+            opacity: 0.15;
+            transform: scale(1);
+          }
+          50% {
+            opacity: 0.35;
+            transform: scale(1.3);
+          }
+        }
+
+        @keyframes glow-pulse-3 {
+          0%, 100% {
+            opacity: 0.12;
+            transform: scale(1);
+          }
+          50% {
+            opacity: 0.32;
+            transform: scale(1.25);
+          }
+        }
+
         @keyframes expand {
           from {
             width: 0;
@@ -835,6 +1209,78 @@ export default function App() {
 
         .animate-float-pulse {
           animation: float-pulse 8s ease-in-out infinite;
+        }
+
+        .animate-float-diagonal-1 {
+          animation: float-diagonal-1 12s ease-in-out infinite;
+        }
+
+        .animate-float-diagonal-2 {
+          animation: float-diagonal-2 14s ease-in-out infinite;
+        }
+
+        .animate-float-diagonal-3 {
+          animation: float-diagonal-3 16s ease-in-out infinite;
+        }
+
+        .animate-float-diagonal-4 {
+          animation: float-diagonal-4 13s ease-in-out infinite;
+        }
+
+        .animate-float-diagonal-5 {
+          animation: float-diagonal-5 15s ease-in-out infinite;
+        }
+
+        .animate-float-diagonal-6 {
+          animation: float-diagonal-6 17s ease-in-out infinite;
+        }
+
+        .animate-float-diagonal-7 {
+          animation: float-diagonal-7 14s ease-in-out infinite;
+        }
+
+        .animate-float-diagonal-8 {
+          animation: float-diagonal-8 16s ease-in-out infinite;
+        }
+
+        .animate-float-slow-1 {
+          animation: float-slow-1 18s ease-in-out infinite;
+        }
+
+        .animate-float-slow-2 {
+          animation: float-slow-2 20s ease-in-out infinite;
+        }
+
+        .animate-float-slow-3 {
+          animation: float-slow-3 22s ease-in-out infinite;
+        }
+
+        .animate-float-slow-4 {
+          animation: float-slow-4 19s ease-in-out infinite;
+        }
+
+        .animate-spotlight-1 {
+          animation: spotlight-1 8s ease-in-out infinite;
+        }
+
+        .animate-spotlight-2 {
+          animation: spotlight-2 10s ease-in-out infinite;
+        }
+
+        .animate-spotlight-3 {
+          animation: spotlight-3 9s ease-in-out infinite;
+        }
+
+        .animate-glow-pulse-1 {
+          animation: glow-pulse-1 6s ease-in-out infinite;
+        }
+
+        .animate-glow-pulse-2 {
+          animation: glow-pulse-2 7s ease-in-out infinite;
+        }
+
+        .animate-glow-pulse-3 {
+          animation: glow-pulse-3 8s ease-in-out infinite;
         }
 
         .animate-expand {
