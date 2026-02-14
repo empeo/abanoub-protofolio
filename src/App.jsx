@@ -589,7 +589,7 @@ export default function App() {
                     <blockquote className="relative px-8 py-6 rounded-xl border border-red-500/20 bg-black/20 backdrop-blur-sm">
                       <div className="text-3xl md:text-4xl lg:text-5xl font-bold">
                         <span className="text-red-400" style={{ fontFamily: 'Arial, sans-serif' }}>
-                          مفيش نقاط عمياء
+                          لا نقاط عمياء
                         </span>
                       </div>
                       {/* Quote Marks */}
